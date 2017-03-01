@@ -64,6 +64,12 @@ and includes the latest [gcc6 patch](https://github.com/csrg-utfsm/acscb/commit/
 
 As many ACS building/compiling needed-scripts are been left as Sources of the ExtProd RPM, also to allow modularity in their updates.
 
+Another important point is the intend to deprecate the use of .bash_profile.acs file, leaving enviroment variables in /etc/profile.d files. For example,
+ExtProd RPM creates jacorb.sh, which contains and exports:
+
+> JACORB_HOME=/home/almamgr/ACS-%{version}/JacORB
+> export JACORB_HOME
+
 ### [](#Packages_ExtProd ) Package selection in ExtProd
 All of the python packages in acs.req and acs.req.0 have been included as requirements of the rpm or installed through pip. Every package is kept as closed as possible to the one indicated
 in acs.req/acs.req.0 files, with the consideration that if a newer version is available, and the changelog indicates no mayor changes, then the newer version will be prefered.
