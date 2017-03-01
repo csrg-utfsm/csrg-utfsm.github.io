@@ -101,4 +101,5 @@ For information about this change, please see [2008a Changelog of TAO](http://ww
 
 ## [](#header-5) FAQ, Other Repositories and Useful Links
 
- - [CSRG oVirt Repo] (http://repo.csrg.cl/)
+ - [Source RPMs](http://repo.csrg.cl/)
+ - [CSRG oVirt Repo](http://repo.csrg.cl/)
