@@ -13,8 +13,9 @@ Version is number-guided to keep clear the update order for the rpm package.
 * Update OS
 > yum -y update
 
-* Epel repo, centos-release-scl and apache-maven-fedora repo must be installed before:
+* Apache-maven-fedora repo must be installed before:
 > curl https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -o /etc/yum.repos.d/epel-apache-maven.repo
+* Epel and centos-release-scl Repos
 > yum -y install epel-release centos-release-scl
 
 * Install ACS CB and ExtProd Repo
@@ -62,13 +63,24 @@ The only packages not being from a RPM origin inside ExtProd are JacORB, Tctlk a
 been replaced and tested. Mico is [expected to fail](http://acs-community.github.io/) on RHEL 6, so this behaviour is expected also on EL/RHEL 7+, although it appears to build correctly,
 and includes the latest [gcc6 patch](https://github.com/csrg-utfsm/acscb/commit/9e930df9a0451e2b84344350520b6148a4460fd8).
 
-As many ACS building/compiling needed-scripts are been left as Sources of the ExtProd RPM, also to allow modularity in their updates.
+As many ACS building/compiling needed-scripts are been left as Sources of the ExtProd RPM, also to allow modularity in their updates. This scripts are left in system default path's
+such as /usr/local/bin, in order to prevent the need for path extension and modifications on the user side.
 
 Another important point is the intend to deprecate the use of .bash_profile.acs file, leaving enviroment variables in /etc/profile.d files. For example,
 ExtProd RPM creates jacorb.sh, which contains and exports:
 
 > JACORB_HOME=/home/almamgr/ACS-%{version}/JacORB
 > export JACORB_HOME
+
+Source0 in Extprod RPM consist in the following:
+> ACS-ExtProd-{ACS_Version}
+>  - INSTALL
+>    - buildEclipse
+>  - PRODUCTS
+>    - eclipse-SDK-4.2.2-linux-gtk-x86_64.tar.gz
+>    - eclipse-4.2.2-delta-pack.zip
+
+The traditional files from the old instalation of ACS are kept as legacy but not used.
 
 ### [](#Packages_ExtProd ) Package selection in ExtProd
 All of the python packages in acs.req and acs.req.0 have been included as requirements of the rpm or installed through pip. Every package is kept as closed as possible to the one indicated
