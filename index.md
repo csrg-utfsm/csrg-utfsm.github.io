@@ -59,12 +59,14 @@ Also AutoReq is set to "no"
 The only packages not being from a RPM origin inside ExtProd are JacORB, Tctlk and Mico. Although, the manual Tctlk compilation build many packages already system available, but haven't
 been replaced and tested. Mico is [http://acs-community.github.io/](expected to fail) on RHEL 6, so this behaviour is expected also on EL/RHEL 7+.
 
-### [](#Python_Packages_ExtProd ) Python Packages in ExtProd
+### [](#Packages_ExtProd ) Package selection in ExtProd
 All of the python packages in acs.req and acs.req.0 have been included as requirements of the rpm or installed through pip. Every package is kept as closed as possible to the one indicated
 in acs.req/acs.req.0 files, with the consideration that if a newer version is available, and the changelog indicates no mayor changes, then the newer version will be prefered.
 Also, if the version in the acs.req files is deprecated, the oldest system available version is prefered.
+
 As CentOS 7 is compatible with mainly every package between fedora21 and fedora24, and further for packages not involving gcc, the srpms are fetch and recompiled, allowing an interesting
 number of versions per package to be selected. Also RPMs from OpenSUSE and other rpm based SO is considered.
+The spirit of the RPM is initally to replace with system available packages as much as possible and the fix whatever may have been broken.
 
 ### [](#ACE-TAO-2008aPatch) ACE-TAO Extra Patch
 The following replacement/patch has been aplied to ACE-TAO 6.3.0_{ACS_Version} 
