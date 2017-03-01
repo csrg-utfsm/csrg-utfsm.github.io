@@ -31,14 +31,16 @@ To load env vars you can do "source ~/.bashrc" or logout and login
 In order to save time, the lookup of existing RPMs in other flavors of RPM using S.O. is highly recommended.
 
 * SRPMS: 
-  - [](http://fedora.gtdinternet.com/releases/{Fedora Version}/Everything/source/SRPMS/)
-  - [](https://dl.fedoraproject.org/pub/fedora/linux/releases/23/Server/source/SRPMS/)
+  - http://fedora.gtdinternet.com/releases/{Fedora Version}/Everything/source/SRPMS/
+  - https://dl.fedoraproject.org/pub/fedora/linux/releases/23/Server/source/SRPMS/
+
 * x86_64: 
-  - [](http://ftp.inf.utfsm.cl/fedora/linux/releases/{Fedora Version}/Everything/x86_64/os/Packages/)
-  - [](http://ftp.inf.utfsm.cl/fedora/linux/updates/{Fedora Version}/x86_64/)
+  - http://ftp.inf.utfsm.cl/fedora/linux/releases/{Fedora Version}/Everything/x86_64/os/Packages/
+  - http://ftp.inf.utfsm.cl/fedora/linux/updates/{Fedora Version}/x86_64/
+
 * aarch64:
-  - [](http://mirror.chpc.utah.edu/pub/fedora-secondary/updates/{Fedora Version}/aarch64/)
-  - [](http://mirror.chpc.utah.edu/pub/fedora-secondary/releases/{Fedora Version}/Everything/aarch64/os/Packages/)
+  - http://mirror.chpc.utah.edu/pub/fedora-secondary/updates/{Fedora Version}/aarch64/
+  - http://mirror.chpc.utah.edu/pub/fedora-secondary/releases/{Fedora Version}/Everything/aarch64/os/Packages/
 
 Also rpmfind.net and OpenSuse pages are useful.
 
@@ -71,8 +73,8 @@ The spirit of the RPM is initally to replace with system available packages as m
 ### [](#ACE-TAO-2008aPatch) ACE-TAO Extra Patch
 The following replacement/patch has been aplied to ACE-TAO 6.3.0_{ACS_Version} 
 > sed -i 's/IOP::TaggedComponentList create_ior_components/IOP::TaggedComponentSeq create_ior_components/g' /usr/include/orbsvcs/SecurityReplaceable.idl
-For information about this change, please see [http://www.dre.vanderbilt.edu/~schmidt/DOC_ROOT/TAO/ChangeLogs/ChangeLog-2008a](2008a Changelog of TAO): Removed TaggedComponentList and use TaggedComponentSeq, the first one is not part of the CORBA spec, the second is.
 
+For information about this change, please see [http://www.dre.vanderbilt.edu/~schmidt/DOC_ROOT/TAO/ChangeLogs/ChangeLog-2008a](2008a Changelog of TAO): Removed TaggedComponentList and use TaggedComponentSeq, thefirst one is not part of the CORBA spec, the second is.
 
 
 ## [](#header-5) FAQ, Other Repositories and Useful Links
