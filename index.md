@@ -59,7 +59,8 @@ ExtProd is built as a regular  RPM with the [check-rpaths](https://lists.fedorap
 Also AutoReq is set to "no"
 
 The only packages not being from a RPM origin inside ExtProd are JacORB, Tctlk and Mico. Although, the manual Tctlk compilation build many packages already system available, but haven't
-been replaced and tested. Mico is [expected to fail](http://acs-community.github.io/) on RHEL 6, so this behaviour is expected also on EL/RHEL 7+, although it appears to build correctly.
+been replaced and tested. Mico is [expected to fail](http://acs-community.github.io/) on RHEL 6, so this behaviour is expected also on EL/RHEL 7+, although it appears to build correctly,
+and includes the latest [gcc6 patch](https://github.com/csrg-utfsm/acscb/commit/9e930df9a0451e2b84344350520b6148a4460fd8).
 
 As many ACS building/compiling needed-scripts are been left as Sources of the ExtProd RPM, also to allow modularity in their updates.
 
