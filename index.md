@@ -124,4 +124,4 @@ For information about this change, please see [2008a Changelog of TAO](http://ww
  - Create symlinks in a cleaner way in ExtProds Spec file
  - Sign the RPMs: http://giovannitorres.me/how-to-setup-an-rpm-signing-key.html
  - Complete the Systemd daemons of acs commands
- - 
+ - Pack al java libs properly. [http://www.mojohaus.org/rpm-maven-plugin/usage.html](Maven RPM creation plugin) can be used
