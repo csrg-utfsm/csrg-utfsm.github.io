@@ -28,6 +28,9 @@ Version is number-guided to keep clear the update order for the rpm package.
 Currently gcc is not getting installed even when declared as a requirement
 To load env vars you can do "source ~/.bashrc" or logout and login
 
+After the instalation of ACS-ExtProds, and before de ACS instalation, a session logout-login is needed
+in order to load the environment variables (now in profile.d files)
+
 ## [](#header-3) Places to look for packages:
 In order to save time, the lookup of existing RPMs in other flavors of RPM using S.O. is highly recommended.
 
