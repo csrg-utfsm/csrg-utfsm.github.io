@@ -59,7 +59,8 @@ The main idea behind the RPMs is the use of system-available packages, which wil
 
 ExtProd is in a Beta state and ACS Core in an alfa state. The SPEC files can be found at [this github](https://github.com/LeoXDXp/acs-rpm)
 
-ExtProd is built as a regular  RPM with the [check-rpaths](https://lists.fedoraproject.org/pipermail/users/2012-November/426600.html) commented out in .rpmmacros file.
+ExtProd is built as a regular  RPM with the [check-rpaths](https://lists.fedoraproject.org/pipermail/users/2012-November/426600.html) commented out in .rpmmacros file. It happens because
+Eclipse has [https://fedoraproject.org/wiki/RPath_Packaging_Draft](libs in non-system paths)
 Also AutoReq is set to "no"
 
 The only packages not being from a RPM origin inside ExtProd are JacORB, Tctlk and Mico. Although, the manual Tctlk compilation build many packages already system available, but haven't
@@ -86,6 +87,11 @@ Source0 in Extprod RPM consist in the following:
 The traditional files from the old instalation of ACS are kept as legacy but not used. All of this can be installed via the Extprod-devel rpm is available from 2016.10+.
 ExtProds RPM creates user almamgr with uid 550 and the /alma symlink, which point to /home/almamgr. ExtProds-devel creates user almadevel. This way, ExtProds and devel can be installed/uninstalled
 without colliding over the same user.
+
+Of the Tools Module built by ACS the yet not RPM encapsulated are:
+> tat extjars getopt xercesc xercesj xsddoc extidl vtd-xml oAW scxml_apache
+
+
 
 ### [](#Packages_ExtProd ) Package selection in ExtProd
 All of the python packages in acs.req and acs.req.0 have been included as requirements of the rpm or installed through pip. Every package is kept as closed as possible to the one indicated
@@ -114,4 +120,8 @@ For information about this change, please see [2008a Changelog of TAO](http://ww
  - Create JacORB 3.6.1 RPM. JacORB 2.3.1 is available in fedora.
  - Create Mico RPM
  - Replace tctlk 8.5 manual compilation with system available packages. Almost all the packages manually built exist. Some version checking is needed.
- - Instead of using /home/<user> leave the code in /usr/share/{alma,almadevel,etc} 
+ - Instead of using /home/<user> leave the code in /usr/share/{alma,almadevel,etc}
+ - Create symlinks in a cleaner way in ExtProds Spec file
+ - Sign the RPMs: http://giovannitorres.me/how-to-setup-an-rpm-signing-key.html
+ - Complete the Systemd daemons of acs commands
+ - 
