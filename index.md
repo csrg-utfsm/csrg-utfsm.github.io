@@ -80,7 +80,9 @@ Source0 in Extprod RPM consist in the following:
 >    - eclipse-SDK-4.2.2-linux-gtk-x86_64.tar.gz
 >    - eclipse-4.2.2-delta-pack.zip
 
-The traditional files from the old instalation of ACS are kept as legacy but not used.
+The traditional files from the old instalation of ACS are kept as legacy but not used. All of this can be installed via the Extprod-devel rpm is available from 2016.10+.
+ExtProds RPM creates user almamgr with uid 550 and the /alma symlink, which point to /home/almamgr. ExtProds-devel creates user almadevel. This way, ExtProds and devel can be installed/uninstalled
+without colliding over the same user.
 
 ### [](#Packages_ExtProd ) Package selection in ExtProd
 All of the python packages in acs.req and acs.req.0 have been included as requirements of the rpm or installed through pip. Every package is kept as closed as possible to the one indicated
@@ -99,7 +101,14 @@ The following replacement/patch has been aplied to ACE-TAO 6.3.0_{ACS_Version}
 For information about this change, please see [2008a Changelog of TAO](http://www.dre.vanderbilt.edu/~schmidt/DOC_ROOT/TAO/ChangeLogs/ChangeLog-2008a): Removed TaggedComponentList and use TaggedComponentSeq, thefirst one is not part of the CORBA spec, the second is.
 
 
-## [](#header-5) FAQ, Other Repositories and Useful Links
+## [](#FAQ-others) FAQ, Other Repositories and Useful Links
 
  - [Source RPMs](http://repo.csrg.cl/)
  - [CSRG oVirt Repo](http://repo.csrg.cl/)
+
+## [](#Todo) To-Do List
+
+ - Create JacORB 3.6.1 RPM. JacORB 2.3.1 is available in fedora.
+ - Create Mico RPM
+ - Replace tctlk 8.5 manual compilation with system available packages. Almost all the packages manually built exist. Some version checking is needed.
+ - Instead of using /home/<user> leave the code in /usr/share/{alma,almadevel,etc} 
