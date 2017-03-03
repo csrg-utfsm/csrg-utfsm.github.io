@@ -84,7 +84,7 @@ ExtProds RPM creates user almamgr with uid 550 and the /alma symlink, which poin
 without colliding over the same user.
 
 Of the Tools Module built by ACS the yet not RPM encapsulated are (getopt ignored as is indicated for SunOS only):
-> tat extjars xsddoc extidl vtd-xml oAW scxml_apache
+> tat xsddoc extidl vtd-xml oAW scxml_apache
 
 
 
@@ -109,6 +109,7 @@ For information about this change, please see [2008a Changelog of TAO](http://ww
 
  - [Source RPMs](http://repo.csrg.cl/)
  - [CSRG oVirt Repo](http://repo.csrg.cl/)
+ - [Personal Development Notes](https://csrg-utfsm.github.io/acs-makefile.md)
 
 ## [](#Todo) To-Do List
 
