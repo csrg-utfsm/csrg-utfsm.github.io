@@ -20,13 +20,8 @@ Version is number-guided to keep clear the update order for the rpm package.
 
 * Install ACS CB and ExtProd Repo
 > curl http://repo.csrg.cl/acs-cb.repo -o /etc/yum.repos.d/acs-cb.repo
-* Install gcc (Not yet working as RPMs dependency)
-> yum install -y gcc
-* Install ACS CB ExtProds
-> yum install -y ACS-ExtProds 
-
-Currently gcc is not getting installed even when declared as a requirement
-To load env vars you can do "source ~/.bashrc" or logout and login
+* Install ACS CB ExtProds and ACS CB Extra Jars
+> yum install -y ACS-ExtProds ACS-ExtJars
 
 After the instalation of ACS-ExtProds, and before de ACS instalation, a session logout-login is needed
 in order to load the environment variables (now in profile.d files)
@@ -46,7 +41,7 @@ In order to save time, the lookup of existing RPMs in other flavors of RPM using
   - [http://mirror.chpc.utah.edu/pub/fedora-secondary/updates/{Fedora Version}/aarch64/]
   - [http://mirror.chpc.utah.edu/pub/fedora-secondary/releases/{Fedora Version}/Everything/aarch64/os/Packages/]
 
-Also rpmfind.net and OpenSuse pages are useful.
+Also [http://www.rpmfind.net](RPMFind.net) and OpenSuse pages are useful.
 
 # [](#header-4) How was this ACS built
 
@@ -59,8 +54,8 @@ The main idea behind the RPMs is the use of system-available packages, which wil
 
 ExtProd is in a Beta state and ACS Core in an alfa state. The SPEC files can be found at [this github](https://github.com/LeoXDXp/acs-rpm)
 
-ExtProd is built as a regular  RPM with the [check-rpaths](https://lists.fedoraproject.org/pipermail/users/2012-November/426600.html) commented out in .rpmmacros file. It happens because
-Eclipse has [https://fedoraproject.org/wiki/RPath_Packaging_Draft](libs in non-system paths)
+Initially ExtProd was built as a regular  RPM with the [check-rpaths](https://lists.fedoraproject.org/pipermail/users/2012-November/426600.html) commented out in .rpmmacros file. It happened because
+Eclipse has [https://fedoraproject.org/wiki/RPath_Packaging_Draft](libs in non-system paths). This appears no longer needed.
 Also AutoReq is set to "no"
 
 The only packages not being from a RPM origin inside ExtProd are JacORB, Tctlk and Mico. Although, the manual Tctlk compilation build many packages already system available, but haven't
@@ -125,3 +120,8 @@ For information about this change, please see [2008a Changelog of TAO](http://ww
  - Sign the RPMs: http://giovannitorres.me/how-to-setup-an-rpm-signing-key.html
  - Complete the Systemd daemons of acs commands
  - Pack al java libs properly. [http://www.mojohaus.org/rpm-maven-plugin/usage.html](Maven RPM creation plugin) can be used
+
+## [](#Deprecated) Deprecated Packages used in ACS
+
+ - [http://jakarta.apache.org/regexp/](The Jakarta Project). Recomendation is to replace with regexp in java.util.regexp
+  
