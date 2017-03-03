@@ -88,8 +88,8 @@ The traditional files from the old instalation of ACS are kept as legacy but not
 ExtProds RPM creates user almamgr with uid 550 and the /alma symlink, which point to /home/almamgr. ExtProds-devel creates user almadevel. This way, ExtProds and devel can be installed/uninstalled
 without colliding over the same user.
 
-Of the Tools Module built by ACS the yet not RPM encapsulated are:
-> tat extjars getopt xercesc xercesj xsddoc extidl vtd-xml oAW scxml_apache
+Of the Tools Module built by ACS the yet not RPM encapsulated are (getopt ignored as is indicated for SunOS only):
+> tat extjars xsddoc extidl vtd-xml oAW scxml_apache
 
 
 
