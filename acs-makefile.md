@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # [](#header-1) ACS Makefile Notes
 
 Disclaimer: This are personal notes taken during development of ACS CB RPM's
@@ -18,6 +22,12 @@ the build process should be:
       - acsBUILDPrepareKit.sh script builds VLT and Doc stuff that belong to Kit Module and have a "circular" dependency. 
       - Then, Kit's acs and acstempl are built. Also Doxygen in Tool's module is built (Not necesary)
    - update: checkModuleTree Again and does almost the same as *Canned* with the difference, that instead of calling Make directly, it uses the defined instructions of MakeIt and MakeItAux, which add the measurement of time.
+
+ - MakeIt and MakeItAux are called 3 times inside update, to make clean, make all, and make install
+  * $1 = clean, $2 = build.log
+  * $1 = all, $2 = build.log
+  * $1 = install, $2 = build.log
+
 
 
  - Define Canned: For loop through folders grouped in MODULES variable, to select one of the 3 places where the Makefile of that particular module could be, which are:
