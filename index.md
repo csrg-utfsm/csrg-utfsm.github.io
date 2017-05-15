@@ -8,6 +8,28 @@ ports can be created for aarch64, without cross compiling nightmares =D.
 Versions 2016.10+ have a beta-working ExtProd RPM and repo with an ACS RPM in alfa.
 Version is number-guided to keep clear the update order for the rpm package.
 
+
+
+## Current Status: 15/5/2017
+
+* ACS-2017.04 (Apr) has no mayor deferences with 2017.02 (Feb)
+* ACS-ExtProds uses castor package without acs-patches. Patch is for castor 0.9.6, and most of it is already included, with different names in the code, however, I can't build xmljbind due to the missing method "setDefaultURIResolver(AlmaURIResolver)" added in the patch -> Patch Needs Updating
+* ACS-ExtJars is OK
+* ACS-eclipse-plugins is built with Autoreq = no, otherwise, it has never ending java dependencies.
+* ACS-ToolsKit no longer build benchmarks, which needs to be build after all the acs-core packages.
+* ACS-jACSutil Compilation is OK, Unittests Passed 12/15
+* ACS-xmljbind: Patch Needs Updating
+* ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
+
+
+* Tat Tests:
+ > grepFile doesn't exist
+ > /diska/home/almadev/introot/idl/*.xml: No such file or directory*
+ > Some tests don't compile
+
+
+
+
 ## [](#header-2) Use Instructions
 
 * Update OS
@@ -46,13 +68,14 @@ Also [http://www.rpmfind.net](RPMFind.net) and OpenSuse pages are useful.
 # [](#header-4) How was this ACS built
 
 We have a forked [ACS Community Branch git](https://github.com/csrg-utfsm/acscb) which is regularly been merged against [ALMA ACS's git repository](http://git-dev.sco.alma.cl/cgit/)
-Also, there are 2 RPMs:
+Also, there are 3 RPMs:
  - ExtProd: Installs ACE+TAO 6.3.0_{ACS_Version} (Modified w/ACS Patches), OpenJDK 1.8.0, Apache Maven 3.2.5, boost 1.4.8, ... 
+ - ExtJars: Includes jar libraries not found on current RPMs: activation.jar, (apache-)common-math.jar, (apache-)common-xml-resolver, ehcache-core, jackarta-regexp (deprecated by apache), jchart2d, junit-dep, prevayler, sqltool
  - ACS Core: TBD
 
 The main idea behind the RPMs is the use of system-available packages, which will in return allow an easier instalation/management of ACS
 
-ExtProd is in a Beta state and ACS Core in an alfa state. The SPEC files can be found at [this github](https://github.com/LeoXDXp/acs-rpm)
+ExtProd is in a Beta state and ACS Core in an alfa state for 2016.10. 2017.02 hasn't been released. The SPEC files can be found at [this github](https://github.com/LeoXDXp/acs-rpm)
 
 Initially ExtProd was built as a regular  RPM with the [check-rpaths](https://lists.fedoraproject.org/pipermail/users/2012-November/426600.html) commented out in .rpmmacros file. It happened because
 Eclipse has [https://fedoraproject.org/wiki/RPath_Packaging_Draft](libs in non-system paths). This appears no longer needed.
