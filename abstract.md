@@ -4,7 +4,6 @@ layout: default
 
 # [](#header-1) Abstract
 
-
 ## Key Ideas
 
 - Seen the dependencies as a tree structure, attacking the problem from the leafs, using system packaging for deployment/maintainance and system control through daemons, an accessible option to initiate the transformation from a big binary to a full-stack modularized component-based software.
@@ -28,6 +27,13 @@ Each RPM handled 2 specific things:
 Other issue to be considered, is the change in paradigms since the days ACS was initially coded. 15+ years ago, the existence of heterogeneous CPU
 architectures (SPARC, x86, s390), each one with it's corresponding O.S., implicated the challenge of creating code that should deploy and execute in as much of the OSes it could, which meant, handling many options.
 Today, Linux is available for almost every existing architecture, with the available server OSes, narrowed down to Debian, CentOS or OpenSUSE.
+- Alternative approach to build once and wrap for distribution. Issue still present on cleanly updating parts of the software. 
+
+## Current Structure
+
+ - [UML Diagram](http://www.eso.org/~almamgr/AlmaAcs/OnlineDocs/ACSArchitecture/Project/Images/Main.png "ACS UML Diagram")
+
+ - [Historical ACS tree view](http://csrg.cl/~mmora/AcsAudit/CommonSoftware-tree "ACS 6.0.4 Tree Diagram")
 
 ## [](#Benefits) Benefits
  - Easier Updating/Patching
