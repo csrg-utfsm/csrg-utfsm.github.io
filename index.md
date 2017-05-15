@@ -20,14 +20,12 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-jACSutil Compilation is OK, Unittests Passed 12/15
 * ACS-xmljbind: Patch Needs Updating
 * ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
-
+* ACS-acserridl under construction
 
 * Tat Tests:
  > grepFile doesn't exist
  > /diska/home/almadev/introot/idl/*.xml: No such file or directory*
  > Some tests don't compile
-
-
 
 
 ## [](#header-2) Use Instructions
