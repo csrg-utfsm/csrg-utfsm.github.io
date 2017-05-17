@@ -18,9 +18,10 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-eclipse-plugins is built with Autoreq = no, otherwise, it has never ending java dependencies.
 * ACS-ToolsKit no longer build benchmarks, which needs to be build after all the acs-core packages.
 * ACS-jACSutil Compilation is OK, Unittests Passed 12/15
-* ACS-xmljbind: Patch Needs Updating
+* ACS-xmljbind: Castor Patch Needs Updating
 * ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
-* ACS-acserridl under construction
+* ACS-acserridl OK
+* ACS-acsidlcommon Needs ACS-xmljbind
 
 * Tat Tests:
  > grepFile doesn't exist
