@@ -23,10 +23,13 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-xmljbind: Compilation is OK, Unittests Passed 1. 1 Broken (diska)
 * ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
 * ACS-acserridl OK
-* ACS-acsidlcommon Needs ACS-xmljbind
+* ACS-acsidlcommon under construction
+* ACS-acsutil waiting for ACS-acsidlcommon
+* ACS-acsstartup under construction
 
 * Tat Tests:
  > grepFile doesn't exist
+ > sedFile doesn't exist
  > /diska/home/almadev/introot/idl/*.xml: No such file or directory*
  > Some tests don't compile
 
