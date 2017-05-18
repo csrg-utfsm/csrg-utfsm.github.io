@@ -22,7 +22,8 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-jACSutil Compilation is OK, Unittests Passed 12/15
 * ACS-xmljbind: Compilation is OK, Unittests Passed 1. 1 Broken (diska)
 * ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
-* ACS-acserridl under construction
+* ACS-acserridl OK
+* ACS-acsidlcommon Needs ACS-xmljbind
 
 * Tat Tests:
  > grepFile doesn't exist
