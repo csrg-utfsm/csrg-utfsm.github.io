@@ -10,15 +10,17 @@ Version is number-guided to keep clear the update order for the rpm package.
 
 
 
-## Current Status: 15/5/2017
+## Current Status: 18/5/2017
 
 * ACS-2017.04 (Apr) has no mayor deferences with 2017.02 (Feb)
-* ACS-ExtProds uses castor package without acs-patches. Patch is for castor 0.9.6, and most of it is already included, with different names in the code, however, I can't build xmljbind due to the missing method "setDefaultURIResolver(AlmaURIResolver)" added in the patch -> Patch Needs Updating
+* ACS-ExtProds uses castor package without acs-patches. 
+ - 15/5/2017: Patch is for castor 0.9.6, and most of it is already included, with different names in the code, however, I can't build xmljbind due to the missing method "setDefaultURIResolver(AlmaURIResolver)" added in the patch -> Patch Needs Updating
+ - 18/5/2017: Created Castor-ACS-0.9.6.2017.02. Only xmljbind makes direct use of it. Leavind ACS-ExtProds as it was. Patch Update is STILL Needed if castor is to be used.
 * ACS-ExtJars is OK
 * ACS-eclipse-plugins is built with Autoreq = no, otherwise, it has never ending java dependencies.
 * ACS-ToolsKit no longer build benchmarks, which needs to be build after all the acs-core packages.
 * ACS-jACSutil Compilation is OK, Unittests Passed 12/15
-* ACS-xmljbind: Patch Needs Updating
+* ACS-xmljbind: Compilation is OK, Unittests Passed 1. 1 Broken (diska)
 * ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
 * ACS-acserridl under construction
 
