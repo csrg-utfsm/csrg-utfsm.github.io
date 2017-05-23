@@ -159,4 +159,4 @@ In order to create re-usable building and testing environments, there are a coup
 ## [](#Deprecated) Deprecated Packages used in ACS
 
  - [http://jakarta.apache.org/regexp/](The Jakarta Project). Recomendation is to replace with regexp in java.util.regexp
-  
+ - tktable: This package is obsolete (CentOS7) https://pkgs.org/download/tktable.
