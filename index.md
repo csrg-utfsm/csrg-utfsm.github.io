@@ -10,12 +10,13 @@ Version is number-guided to keep clear the update order for the rpm package.
 
 
 
-## Current Status: 18/5/2017
+## Current Status: 25/6/2017
 
 * ACS-2017.04 (Apr) has no mayor deferences with 2017.02 (Feb)
 * ACS-ExtProds uses castor package without acs-patches. 
  - 15/5/2017: Patch is for castor 0.9.6, and most of it is already included, with different names in the code, however, I can't build xmljbind due to the missing method "setDefaultURIResolver(AlmaURIResolver)" added in the patch -> Patch Needs Updating
  - 18/5/2017: Created Castor-ACS-0.9.6.2017.02. Only xmljbind makes direct use of it. Leavind ACS-ExtProds as it was. Patch Update is STILL Needed if castor is to be used.
+ - 30/5/2017: Created log4cpp-ACS, devel package used by ACS-logging
 * ACS-ExtJars is OK
 * ACS-eclipse-plugins is built with Autoreq = no, otherwise, it has never ending java dependencies.
 * ACS-ToolsKit no longer build benchmarks, which needs to be build after all the acs-core packages.
@@ -23,15 +24,23 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-xmljbind: Compilation is OK, Unittests Passed 1. 1 Broken (diska)
 * ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
 * ACS-acserridl OK
-* ACS-acsidlcommon under construction
-* ACS-acsutil waiting for ACS-acsidlcommon
+* ACS-acsidlcommon OK
+* ACS-acsutil OK, Tat Test require baciidl
 * ACS-acsstartup under construction
+* ACS-loggingidl is OK
+* ACS-logging is OK, Tat Test require maciidl
+* ACS-acserr under construction, needs acsutil and logging
+* ACS-maciidl under construction, needs acserrType
+* ACS-baciidl under construction, needs acserr
 
 * Tat Tests:
  > grepFile doesn't exist
  > sedFile doesn't exist
  > /diska/home/almadev/introot/idl/*.xml: No such file or directory*
  > Some tests don't compile
+
+* False Failures:
+ > ERROR: ----> ../lib/libbaselogging.a  does not exist. (It does)
 
 
 ## [](#header-2) Use Instructions
