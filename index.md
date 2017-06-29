@@ -10,7 +10,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 
 
 
-## Current Status: 25/6/2017
+## Current Status: 29/6/2017
 
 * ACS-2017.04 (Apr) has no mayor deferences with 2017.02 (Feb)
 * ACS-ExtProds uses castor package without acs-patches. 
@@ -41,6 +41,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 
 * False Failures:
  > ERROR: ----> ../lib/libbaselogging.a  does not exist. (It does)
+ > ERROR: ----> ../lib/libacserrHandlersErrStubs.a  does not exist. (It does)
 
 
 ## [](#header-2) Use Instructions
