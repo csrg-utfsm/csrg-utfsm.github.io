@@ -29,7 +29,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-acsstartup under construction
 * ACS-loggingidl is OK
 * ACS-logging is OK, Tat Test require maciidl
-* ACS-acserr under construction, needs acsutil and logging
+* ACS-acserr is OK, Unittests Failed
 * ACS-maciidl under construction, needs acserrType
 * ACS-baciidl under construction, needs acserr
 
