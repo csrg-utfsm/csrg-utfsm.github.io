@@ -43,6 +43,10 @@ Version is number-guided to keep clear the update order for the rpm package.
  > ERROR: ----> ../lib/libbaselogging.a  does not exist. (It does)
  > ERROR: ----> ../lib/libacserrHandlersErrStubs.a  does not exist. (It does)
 
+* Deprecation Warnings:
+ > Note: Some input files use or override a deprecated API.
+ > Note: Recompile with -Xlint:deprecation for details
+
 
 ## [](#header-2) Use Instructions
 
