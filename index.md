@@ -8,8 +8,6 @@ ports can be created for aarch64, without cross compiling nightmares =D.
 Versions 2016.10+ have a beta-working ExtProd RPM and repo with an ACS RPM in alfa.
 Version is number-guided to keep clear the update order for the rpm package.
 
-
-
 ## Current Status: 11/8/2017
 
 * ACS-2017.04 (Apr) has no mayor deferences with 2017.02 (Feb)
@@ -52,6 +50,39 @@ Version is number-guided to keep clear the update order for the rpm package.
 * Non Fatal Errors
  > /idl/baciErrTypeProperty.xml: src-resolve: Cannot resolve the name 'common:nameType' to a(n) 'type definition' component
 
+# [](#Rules) Building Rules
+
+The instalation destination of the compiled products of the main rpm package of each acs component is /usr/local, where:
+ * /usr/local/bin has the products in the acs component /bin directory
+ * /usr/local/share/java has the jar products in the acs component /lib directory
+ * /usr/local/lib64/ has the shared objets (.so) products in the acs component /lib directory
+ * /usr/local/lib/python/site-packages has the python products in the acs component /lib directory
+
+Some packages  generates elements in /object folder, such as Skeleton, Stubs and/or static libraries (.a files). 
+Those elements are packaged in the devel rpm and are also installed in /usr/local, where:
+ * /usr/local/include has the .h, .cpp and .inl files originated in the acs component /object directory
+ * /usr/local/lib64/ has the static linked (.a) products in the acs component /lib directory
+
+Other products, such as man pages and documentation should also be in their respective /usr/local path.
+
+The Source0 element for each acs component rpm package consists in the complete git repository of ACSCB, which is, the result
+of the merges explained below.
+The main contents of Source0, the LGPL folder is available with the acs-cb-ToolKit-devel rpm package.
+
+The main idea applied in each package is to:
+ - Replace the use of .bash\_profile.acs declarations with several separated files in /etc/profile.d, ensuring the loading
+of them on boot time
+ - Inside each SPEC file, make calls acsMakefile, encapsulating the results inside the rpm without big modifications of the way it works.
+ - Each acs rpm package replaces the list of packages to be compiled with the package's name, in order to trick acsMakefile to only compile the single acs component at a time.
+
+Once an rpm package is succesfully manually built, it undergoes a "strict" build under Jenkins CI, where env vars and other elements are deleted, 
+creating a clean building environment.
+Lastly, each package can be tested in centos docker containers.
+
+Currently, the main focus is to succesfully compile and package the acs components, with tat tests compiling but being allowed to temporary fail. 
+Once the first iteration is concluded, tat tests will be fixed where necesary, considering that some tat test dependencies are different than those
+of the main acs component package.
+
 ## [](#header-2) Use Instructions
 
 * Update OS
@@ -89,11 +120,8 @@ Also [http://www.rpmfind.net](RPMFind.net) and OpenSuse pages are useful.
 
 # [](#header-4) How was this ACS built
 
-We have a forked [ACS Community Branch git](https://github.com/csrg-utfsm/acscb) which is regularly been merged against [ALMA ACS's git repository](http://git-dev.sco.alma.cl/cgit/)
-Also, there are 3 RPMs:
- - ExtProd: Installs ACE+TAO 6.3.0_{ACS_Version} (Modified w/ACS Patches), OpenJDK 1.8.0, Apache Maven 3.2.5, boost 1.4.8, ... 
- - ExtJars: Includes jar libraries not found on current RPMs: activation.jar, (apache-)common-math.jar, (apache-)common-xml-resolver, ehcache-core, jackarta-regexp (deprecated by apache), jchart2d, junit-dep, prevayler, sqltool
- - ACS Core: TBD
+
+We have a forked [ACS Community Branch git](https://github.com/csrg-utfsm/acscb) which is regularly been merged against [ALMA ACS's git repository](http://git-dev.sco.alma.cl/cgit/). This is what Source0 of each acs component package contains.
 
 The main idea behind the RPMs is the use of system-available packages, which will in return allow an easier instalation/management of ACS
 
@@ -103,15 +131,12 @@ Initially ExtProd was built as a regular  RPM with the [check-rpaths](https://li
 Eclipse has [https://fedoraproject.org/wiki/RPath_Packaging_Draft](libs in non-system paths). This appears no longer needed.
 Also AutoReq is set to "no"
 
-The only packages not being from a RPM origin inside ExtProd are JacORB, Tctlk and Mico. Although, the manual Tctlk compilation build many packages already system available, but haven't
-been replaced and tested. Mico is [expected to fail](http://acs-community.github.io/) on RHEL 6, so this behaviour is expected also on EL/RHEL 7+, although it appears to build correctly,
-and includes the latest [gcc6 patch](https://github.com/csrg-utfsm/acscb/commit/9e930df9a0451e2b84344350520b6148a4460fd8).
+The only packages not being from a RPM origin inside ExtProd are JacORB and Mico. Tcltk has a first version of its own package.
+Mico is [expected to fail](http://acs-community.github.io/) on RHEL 6, so this behaviour is expected also on EL/RHEL 7+, although it appears to build correctly, and includes the latest [gcc6 patch](https://github.com/csrg-utfsm/acscb/commit/9e930df9a0451e2b84344350520b6148a4460fd8).
 
-As many ACS building/compiling needed-scripts are been left as Sources of the ExtProd RPM, also to allow modularity in their updates. This scripts are left in system default path's
-such as /usr/local/bin, in order to prevent the need for path extension and modifications on the user side.
+As many ACS building/compiling needed-scripts are been left as Sources of the ExtProd RPM, also to allow modularity in their updates. This scripts are left in system default path's such as /usr/local/bin, in order to prevent the need for path extension and modifications on the user side.
 
-Another important point is the intend to deprecate the use of .bash_profile.acs file, leaving enviroment variables in /etc/profile.d files. For example,
-ExtProd RPM creates jacorb.sh, which contains and exports:
+Another important point is the intend to deprecate the use of .bash_profile.acs file, leaving enviroment variables in /etc/profile.d files. For example, ExtProd RPM creates jacorb.sh, which contains and exports:
 
 > JACORB_HOME=/home/almamgr/ACS-%{version}/JacORB
 > export JACORB_HOME
@@ -124,13 +149,11 @@ Source0 in Extprod RPM consist in the following:
 >    - eclipse-SDK-4.2.2-linux-gtk-x86_64.tar.gz
 >    - eclipse-4.2.2-delta-pack.zip
 
-The traditional files from the old instalation of ACS are kept as legacy but not used. All of this can be installed via the Extprod-devel rpm is available from 2016.10+.
-ExtProds RPM creates user almamgr with uid 550 and the /alma symlink, which point to /home/almamgr. ExtProds-devel creates user almadevel. This way, ExtProds and devel can be installed/uninstalled
-without colliding over the same user.
+The traditional files from the old instalation of ACS are kept as legacy but not used. All of this can be installed via the acs-cb-ToolKit-devel rpm, which is available from 2016.10+.
+ExtProds RPM creates user almamgr with uid 550 and the /alma symlink, which point to /home/almamgr. 
 
 Of the Tools Module built by ACS the yet not RPM encapsulated are (getopt ignored as is indicated for SunOS only):
 > tat xsddoc extidl vtd-xml oAW scxml_apache
-
 
 
 ### [](#Packages_ExtProd ) Package selection in ExtProd
@@ -167,7 +190,6 @@ In order to create re-usable building and testing environments, there are a coup
 
  - Create JacORB 3.6.1 RPM. JacORB 2.3.1 is available in fedora.
  - Create Mico RPM
- - Replace tctlk 8.5 manual compilation with system available packages. Almost all the packages manually built exist. Some version checking is needed.
  - Instead of using /home/<user> leave the code in /usr/share/{alma,almadevel,etc}
  - Create symlinks in a cleaner way in ExtProds Spec file
  - Sign the RPMs: http://giovannitorres.me/how-to-setup-an-rpm-signing-key.html
