@@ -10,7 +10,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 
 
 
-## Current Status: 29/6/2017
+## Current Status: 11/8/2017
 
 * ACS-2017.04 (Apr) has no mayor deferences with 2017.02 (Feb)
 * ACS-ExtProds uses castor package without acs-patches. 
@@ -31,7 +31,8 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-logging is OK, Tat Test require maciidl
 * ACS-acserr is OK, Unittests Failed
 * ACS-maciidl under construction, needs acserrType
-* ACS-baciidl under construction, needs acserr
+* ACS-baciidl OK , Tat Test require maciidl
+* tcltk-ACS created. Compiles tcltk with ACS patch, leaving products in /home/acs-tcltk/tcltk. In the future, products will be left in /usr/local. In the meanwhile, is where ACS-Extprod will call tcltk
 
 * Tat Tests:
  > grepFile doesn't exist
@@ -42,6 +43,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 * False Failures:
  > ERROR: ----> ../lib/libbaselogging.a  does not exist. (It does)
  > ERROR: ----> ../lib/libacserrHandlersErrStubs.a  does not exist. (It does)
+ > ERROR: ----> ../lib/libbaciErrTypePropertyStubs.a  does not exist. (It does. baciidl)
 
 * Deprecation Warnings:
  > Note: Some input files use or override a deprecated API.
