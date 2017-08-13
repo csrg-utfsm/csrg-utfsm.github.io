@@ -47,6 +47,8 @@ Version is number-guided to keep clear the update order for the rpm package.
  > Note: Some input files use or override a deprecated API.
  > Note: Recompile with -Xlint:deprecation for details
 
+* Non Fatal Errors
+ > /idl/baciErrTypeProperty.xml: src-resolve: Cannot resolve the name 'common:nameType' to a(n) 'type definition' component
 
 ## [](#header-2) Use Instructions
 
