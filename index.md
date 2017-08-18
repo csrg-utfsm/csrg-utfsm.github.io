@@ -47,10 +47,11 @@ Version is number-guided to keep clear the update order for the rpm package.
  > Note: Some input files use or override a deprecated API.
  > Note: Recompile with -Xlint:deprecation for details
 
-* Usual compilation issues:
+* Usual compilation issues in * idl packages:
  > Missing argument for option: -XSL | Update paths of xalan.jar in acserrGen scripts : commit 32f1ac415da730
  > fatal error: acserr.idl: No such file or directory | acserr not in global path : commit 73f733b
- > No rule to make target acserrExceptionManager.h | Usually needs to symlink that header with the ones in commit 3868fc0 
+ > No rule to make target acserrExceptionManager.h | Usually needs to symlink that header with the ones in commit 3868fc0
+  - The same applies to logging.h, commit 1528c5d, acsutilTimeStamp.h commit d416ce0,  loki stuff commit 03de50d, acsutil.h commit ff045c0
 
 * Non Fatal Errors
  > /idl/baciErrTypeProperty.xml: src-resolve: Cannot resolve the name 'common:nameType' to a(n) 'type definition' component
