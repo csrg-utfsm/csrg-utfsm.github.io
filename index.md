@@ -46,6 +46,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 * Deprecation Warnings:
  > Note: Some input files use or override a deprecated API.
  > Note: Recompile with -Xlint:deprecation for details
+ > Note: ./alma/ACSErrTypeCppNative/wrappers/AcsJCppAnyEx.java uses or overrides a deprecated API (acserrTypes)
 
 * Usual compilation issues in * idl packages:
  > Missing argument for option: -XSL | Update paths of xalan.jar in acserrGen scripts : commit 32f1ac415da730
