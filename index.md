@@ -8,9 +8,9 @@ ports can be created for aarch64, without cross compiling nightmares =D.
 Versions 2016.10+ have a beta-working ExtProd RPM and repo with an ACS RPM in alfa.
 Version is number-guided to keep clear the update order for the rpm package.
 
-## Current Status: 11/8/2017
+## Current Status: 19/8/2017
 
-* ACS-2017.04 (Apr) has no mayor deferences with 2017.02 (Feb)
+* ACS-2017.06 (Jun) has a good number of changes with 2017.04.
 * ACS-ExtProds uses castor package without acs-patches. 
  - 15/5/2017: Patch is for castor 0.9.6, and most of it is already included, with different names in the code, however, I can't build xmljbind due to the missing method "setDefaultURIResolver(AlmaURIResolver)" added in the patch -> Patch Needs Updating
  - 18/5/2017: Created Castor-ACS-0.9.6.2017.02. Only xmljbind makes direct use of it. Leavind ACS-ExtProds as it was. Patch Update is STILL Needed if castor is to be used.
@@ -31,6 +31,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-maciidl under construction, needs acserrType
 * ACS-baciidl OK , Tat Test require maciidl
 * tcltk-ACS created. Compiles tcltk with ACS patch, leaving products in /home/acs-tcltk/tcltk. In the future, products will be left in /usr/local. In the meanwhile, is where ACS-Extprod will call tcltk
+* ACS-acserrTypes is OK.
 
 * Tat Tests:
  > grepFile doesn't exist (Will be fixed later)
@@ -49,7 +50,7 @@ Version is number-guided to keep clear the update order for the rpm package.
  > Note: ./alma/ACSErrTypeCppNative/wrappers/AcsJCppAnyEx.java uses or overrides a deprecated API (acserrTypes)
  > Note: ./alma/ACSErrTICS/wrappers/AcsJAnyTICSErrorEx.java uses or overrides a deprecated API. (acserrTypes)
 
-* Usual compilation issues in * idl packages:
+* Usual compilation issues in packages:
  > Missing argument for option: -XSL | Update paths of xalan.jar in acserrGen scripts : commit 32f1ac415da730
  > fatal error: acserr.idl: No such file or directory | acserr not in global path : commit 73f733b
  > No rule to make target acserrExceptionManager.h | Usually needs to symlink that header with the ones in commit 3868fc0
