@@ -8,17 +8,19 @@ ports can be created for aarch64, without cross compiling nightmares =D.
 Versions 2016.10+ have a beta-working ExtProd RPM and repo with an ACS RPM in alfa.
 Version is number-guided to keep clear the update order for the rpm package.
 
-## Current Status: 19/8/2017
+## Current Status: 28/9/2017
 
 * ACS-2017.06 (Jun) has a good number of changes with 2017.04.
 * ACS-ExtProds uses castor package without acs-patches. 
  - 15/5/2017: Patch is for castor 0.9.6, and most of it is already included, with different names in the code, however, I can't build xmljbind due to the missing method "setDefaultURIResolver(AlmaURIResolver)" added in the patch -> Patch Needs Updating
  - 18/5/2017: Created Castor-ACS-0.9.6.2017.02. Only xmljbind makes direct use of it. Leavind ACS-ExtProds as it was. Patch Update is STILL Needed if castor is to be used.
  - 30/5/2017: Created log4cpp-ACS, devel package used by ACS-logging
-* ACS-ExtJars is OK
-* ACS-eclipse-plugins is built with Autoreq = no, otherwise, it has never ending java dependencies.
+ - Updated to 2017.06
+* ACS-ExtJars is OK (Updated to 2017.06)
+* ACS-eclipse-plugins is built with Autoreq = no, otherwise, it has never ending java dependencies. (Updated to 2017.06)
 * ACS-ToolsKit no longer build benchmarks, which needs to be build after all the acs-core packages.
-* ACS-jACSutil Compilation is OK, Unittests Passed 12/15
+ - Added AutoReq no. (Updated to 2017.06)
+* ACS-jACSutil Compilation is OK, Unittests Passed 12/15 (Updating to 2017.06)
 * ACS-xmljbind: Compilation is OK, Unittests Passed 1. 1 Broken (diska)
 * ACS-xmlpybind Compilation is OK, Unittests, 1 Passed, 2 Failed, 3 broken
 * ACS-acserridl OK
@@ -34,8 +36,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 * ACS-acserrTypes is OK.
 
 * Tat Tests:
- > grepFile doesn't exist (Will be fixed later)
- > sedFile doesn't exist
+ > grepFile doesn't exist - sedFile doesn't exist: Extend temporary rpm path to Kit/acs/src (not bin, intentionally)
  > /diska/home/almadev/introot/idl/*.xml: No such file or directory*
  > Some tests don't compile
 
@@ -45,6 +46,7 @@ Version is number-guided to keep clear the update order for the rpm package.
  > ERROR: ----> ../lib/libbaciErrTypePropertyStubs.a  does not exist. (It does. baciidl)
 
 * Deprecation Warnings:
+ >  warning: ThreadInfoCompositeData is internal proprietary API and may be removed in a future release (jacsutil)
  > Note: Some input files use or override a deprecated API.
  > Note: Recompile with -Xlint:deprecation for details
  > Note: ./alma/ACSErrTypeCppNative/wrappers/AcsJCppAnyEx.java uses or overrides a deprecated API (acserrTypes)
