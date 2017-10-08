@@ -61,6 +61,72 @@ Version is number-guided to keep clear the update order for the rpm package.
 * Non Fatal Errors
  > /idl/baciErrTypeProperty.xml: src-resolve: Cannot resolve the name 'common:nameType' to a(n) 'type definition' component
 
+# [](#SubSets) Dependencies by language
+Highlighted the ones with the least dependencies
+ * c++
+  - *acsthread* (logging, acserrTypes)
+  - *repeatGuard* (acsutil, acsThread | outputs repeatGuard.jar) 
+  - cdb (cdbidl ACSErrTypes acscomponentidl logging expat(tool) ) - C++ CDB Deprecated
+  - acsalarm (acsThread logging loki ACE maciidl acsalarmidl acsutil expat cdbidl acserrTypes cdb) - creates AlSysSource
+  - acscomponent (acscomponentidl acserrTypes acsThread)
+  - *recovery* (loki logging) 
+  - basenc (acsncidl acscommonidl baciidl acscomponentidl acserridl acserr acsutil cdb acserrTypes recovery)
+  - archiveevents (acsnc acsncidl basenc cdb)
+  - *parameter* (loki logging xerces-c (tool)
+  - baci (baciidl acsThread acserrTypes acsalarm acsutil cdb logging acscomponent recovery acserr baciidl archiveevents TAO pattern(?) )
+  - *enumprop* (baciidl)
+  - maci (maciidl acscontainer acscomponent ACE-TAO logging acsutil baselogging(?) loki acserr acserridl acserrTypes acsalarm acsqos archiveevents)
+  - acslog (acserr maci logging acsutil TAO)
+  - acstestcompcpp ( acscomponentidl baciidl acserridl baci logging acsThread archiveevents | Produces jar outputs, needs ExtJars)
+
+ * java (check .classpath inside component folder for dependencies)
+  - acsjlog (jdt maci maciidl JacORB cdbDAL acserr cdbidl acslog acscommon ExtJars jdom.jar(?) xercesImpl.jar acserrTypes loggingidl acsASsources.jar |  outputs slf4j-api, replace with system's if available)
+  - jacsutil2 ( repeatGuard.jar acsjlog jacsutil maciidl loggingidl acserrTypes acserr cdbidl castor (normal or castor-ACS?) )
+  - cdbChecker
+  - codegen
+  - cdb_rdb (commons-cli-1.2.jar (ExtJars) )  
+  - acscallbacks
+  - jacsalarm
+  - jmanager
+  - jlogEngine (JacORB ExtJars abeansR2Components.jar jacsutil maciidl icons.jar(?) xercesImpl.jar loggingidl acscommon acserr acsjlog jacsutil2)
+  - *comphelpgen* (xmljbind xercesImpl ExtJars xmlParserAPIs.jar castor* acscomponent )
+  - jcont (java container: JacORB slf4j* castor* ExtJars xmljbind acsjlog define baci cdbidl acscomponent maci/idl jacsutil acserrTypes lc.jar(?) acserr ArchiveIdentifierError.jar acsASsources.jar jacsalarm acscontainer jacsutil2 )
+  - jcontnc( JacORB jcont acscomponent cdbidl acserr acserrTypes acsnc/idl acscommon jacsutil maciidl acstime acsexmp castor* repeatGuard ExtJars define)
+  - jacsalarmtest ( acsASsources.jar cdb/idl ExtJars acserrTypes acsjlog maci/idl jcont acscontainer acserr)
+  - jbaci (baciidl)
+  - acscommandcenter
+
+ * python/bash
+  - acspycommon ( acscommonidl?)
+  - acsalarmpy (acsalarmidl?)
+  - acspy
+  - acspyexmpl  
+
+ * 2/3 languages
+  - loggingts ( ?/java:  | acsjlog maci/idl cdbidl castor* jacsutil JacORB acsASsources.jar acserrTypes acserr lc*.jar acscontainer loggingidl acsCallbackSupport.jar)
+  - *acsstartup*
+  - loggingtsTypes (c++/java: | acsnc acscontainer ExtJars )
+  - acsContainerServices (c++/java: acserrTypes acsThread acsComponent)
+  - task (c++/java: baciidl xerces-c(tool) ACE-TAO(tool) maci loki logging baselogging acserr acserridl)
+  - acstime (all: baci maciidl )
+  - acsnc (c++/java: acsutil logging pthread acserrTypes acsncidl repeatGuard acstime maci/idl basenc TAO)
+  - acsdaemon (c++/java: logging ACE-TAO acscomponent maciidl acsutil acserrTypes acsqos acsalarm acserr acsThread loki	acsdaemonidl | acserrj jacsutil acserrTypes acscomponent maciidl acscontainer acsjlog JacORB cdbidl acserr acscommon )
+  - acsexmpl (c++/java: | acserr maci acserrTypes junit(ExtJars) lc.jar (?) acsjlog jacsutil JacORB)
+  - *define* (c++/java: acscommonidl acscomponentidl | xmljbind xercesImpl)
+  - *acsentities* (define xmljbind castor* xercesImpl ExtJars)
+  - *nsStatisticsService* (c++/java: acscomponentidl | ExtJars)
+  - jcontexmpl (c++/java)
+  - monitoring (monicd, monblobber, moncollect, moncontroller)
+  - acssamp (c++/java: acsutil cdb logging acscomponent baci/idl maci/idl acsnc  TAO acserrTypes | jcont jacsutil jcontnc maci/idl acsnc/idl acserr acscommon castor* cdb acserrTypes repeatGuard ExtJars )
+  - mastercomp (c++/java : baciidl acserrTypes | jbaci jcont baciidl acserr maci acsjlog JacORB ... )
+  - nctest
+  - acssim
+  - containerTests (contHandleTest, contLogTest, contNcTest, contThreadTest, corbaRefPersistenceTest, lifecycleTest)
+  - acscourse
+  - ACSLaser (19 subprojects/folders)
+  - acsGUIs (13 subprojects)
+  - acsExtras (acsXmlFileStore. c++/java:) 
+
 # [](#Rules) Building Rules
 
 The instalation destination of the compiled products of the main rpm package of each acs component is /usr/local, where:
