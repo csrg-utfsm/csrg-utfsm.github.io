@@ -63,7 +63,7 @@ Version is number-guided to keep clear the update order for the rpm package.
 
 # [](#SubSets) Dependencies by language
 Highlighted the ones with the least dependencies
- * c++
+* c++
   - *acsthread* (logging, acserrTypes)
   - *repeatGuard* (acsutil, acsThread | outputs repeatGuard.jar) 
   - cdb (cdbidl ACSErrTypes acscomponentidl logging expat(tool) ) - C++ CDB Deprecated
@@ -79,7 +79,7 @@ Highlighted the ones with the least dependencies
   - acslog (acserr maci logging acsutil TAO)
   - acstestcompcpp ( acscomponentidl baciidl acserridl baci logging acsThread archiveevents | Produces jar outputs, needs ExtJars)
 
- * java (check .classpath inside component folder for dependencies)
+* java (check .classpath inside component folder for dependencies)
   - acsjlog (jdt maci maciidl JacORB cdbDAL acserr cdbidl acslog acscommon ExtJars jdom.jar(?) xercesImpl.jar acserrTypes loggingidl acsASsources.jar |  outputs slf4j-api, replace with system's if available)
   - jacsutil2 ( repeatGuard.jar acsjlog jacsutil maciidl loggingidl acserrTypes acserr cdbidl castor (normal or castor-ACS?) )
   - cdbChecker
@@ -96,13 +96,13 @@ Highlighted the ones with the least dependencies
   - jbaci (baciidl)
   - acscommandcenter
 
- * python/bash
+* python/bash
   - acspycommon ( acscommonidl?)
   - acsalarmpy (acsalarmidl?)
   - acspy
   - acspyexmpl  
 
- * 2/3 languages
+* 2/3 languages
   - loggingts ( ?/java:  | acsjlog maci/idl cdbidl castor* jacsutil JacORB acsASsources.jar acserrTypes acserr lc*.jar acscontainer loggingidl acsCallbackSupport.jar)
   - *acsstartup*
   - loggingtsTypes (c++/java: | acsnc acscontainer ExtJars )
@@ -253,8 +253,9 @@ For information about this change, please see [2008a Changelog of TAO](http://ww
 
 In order to create re-usable building and testing environments, there are a couple of [available docker containers](https://hub.docker.com/r/leoxdxp/acs/)
 
- - 2016.10-beta: Container with ACS 2016.10 hand compiled. Created to compare/analize expected behaviour.
- - 2017.02: Containers with ExtProds + ExtJars. Can be used to hand compile ACS 2017.02
+ - 2016.10 : Container with ACS 2016.10 hand compiled. Created to compare/analize expected behaviour.
+  - The container where ACS is been built can be found at [https://hub.docker.com/r/csrg/acs_builder/](https://hub.docker.com/r/csrg/acs_builder/)
+ - 2017.06 in production.
 
 
 ## [](#FAQ-others) FAQ, Other Repositories and Useful Links
@@ -265,9 +266,9 @@ In order to create re-usable building and testing environments, there are a coup
 
 ## [](#Todo) To-Do List
 
- - Create JacORB 3.6.1 RPM. JacORB 2.3.1 is available in fedora.
- - Create Mico RPM
- - Instead of using /home/<user> leave the code in /usr/share/{alma,almadevel,etc}
+ - [Done] Create JacORB 3.6.1 RPM. JacORB 2.3.1 is available in fedora.
+ - [Done] Create Mico RPM
+ - [Partially Done] Instead of using /home/<user> leave the code in /usr/share/{alma,almadevel,etc}
  - Create symlinks in a cleaner way in ExtProds Spec file
  - Sign the RPMs: http://giovannitorres.me/how-to-setup-an-rpm-signing-key.html
  - Complete the Systemd daemons of acs commands
